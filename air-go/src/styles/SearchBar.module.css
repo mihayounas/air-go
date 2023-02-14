@@ -1,0 +1,57 @@
+.search-form {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 2rem auto;
+    max-width: 700px;
+    border: 1px solid #ced4da;
+    border-radius: 0.25rem;
+    padding: 1rem;
+  }
+  
+  .search-form .form-group {
+    margin: 0 1rem;
+    flex: 1 1 auto;
+  }
+  
+  .search-form .form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: bold;
+  }
+  
+  .search-form .form-group input[type="text"],
+  .search-form .form-group input[type="date"] {
+    width: 100%;
+    padding: 0.5rem;
+    border-radius: 0.25rem;
+    border: 1px solid #ced4da;
+    background-color: #fff;
+    color: #495057;
+    transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+  }
+  
+  .search-form .form-group input[type="text"]:focus,
+  .search-form .form-group input[type="date"]:focus {
+    outline: none;
+    border-color: #80bdff;
+    box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+  }
+  
+  .search-form button {
+    display: block;
+    margin-top: 1rem;
+    padding: 0.5rem 1rem;
+    border-radius: 0.25rem;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.15s ease-in-out;
+    font-weight: bold;
+    flex: 1 1 auto;
+  }
+  
+  .search-form button:hover {
+    background-color: #0069d9;
+  }
