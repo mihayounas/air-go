@@ -2,6 +2,9 @@
   font-family: "DM Sans", sans-serif;
   background-color: #f8f8f8;
   min-height: 100vh;
+  background-image: url('../src/assets/images/pexels-photo-6105980.jpeg');
+  background-repeat:  no-repeat;
+  background-size: cover;
 }
 
 * {

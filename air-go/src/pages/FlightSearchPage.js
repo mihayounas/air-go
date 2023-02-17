@@ -6,7 +6,7 @@ import SearchBar from '../components/SearchBar';
 function FlightSearchPage() {
   return (
     <div className="container">
-      <h1>Flight Search</h1>
+      <h1>Sky Is The Limit...</h1>
       <SearchBar />
     </div>
   );
