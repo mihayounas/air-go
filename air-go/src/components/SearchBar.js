@@ -64,7 +64,7 @@ function SearchBar() {
         />
       </div>
       <div className={styles["form-group"]}>
-        <label>Trip Type</label>
+        <label style={{ marginTop: "15px" }}>Trip Type</label>
         <div className={styles["radio-buttons"]}>
           <label>
             <input
