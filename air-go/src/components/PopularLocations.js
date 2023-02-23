@@ -17,7 +17,7 @@ const PopularLocations = () => {
 
   return (
     <div>
-      <h2>Popular Locations</h2>
+      <h2>Popular Locations To Travel</h2>
       <ul>
         {popularDestinations.map((destination) => (
           <li key={destination.Id}>
