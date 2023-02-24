@@ -14,6 +14,7 @@ function NavBar() {
           <Nav className="me-auto">
             <Nav.Link href="#features">Flights</Nav.Link>
             <Nav.Link href="#pricing">Car Hire</Nav.Link>
+           
           </Nav>
           <Nav>
 
@@ -21,6 +22,7 @@ function NavBar() {
               Log In
             </Nav.Link>
           </Nav>
+          <Nav.Link href="#currency"><i class="fa-solid fa-globe"></i></Nav.Link>
         </Navbar.Collapse>
       </Container>
     </Navbar>
