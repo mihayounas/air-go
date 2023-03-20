@@ -7,7 +7,7 @@ const PopularLocations = () => {
   const SKYSCANNER_API_KEY = 'YOUR_API_KEY_HERE';
 
   const getPopularDestinations = async () => {
-    const response = await axios.get(`https://partners.api.skyscanner.net/apiservices/reference/v1.0/countries/en-US?apiKey=${SKYSCANNER_API_KEY}`);
+    const response = await axios.get(`https://partners.api.skyscanner.net/apiservices/reference/v1.0/countries/locales`);
     setPopularDestinations(response.data.Countries);
   };
 
@@ -17,7 +17,7 @@ const PopularLocations = () => {
 
   return (
     <div>
-      <h2>Popular Locations To Travel</h2>
+      <h2>Popular Locations</h2>
       <ul>
         {popularDestinations.map((destination) => (
           <li key={destination.Id}>
