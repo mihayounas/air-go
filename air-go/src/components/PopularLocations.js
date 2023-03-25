@@ -1,14 +1,20 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import styles from "../styles/PopularDestinations.module.css"
 
 const PopularLocations = () => {
   const [popularDestinations, setPopularDestinations] = useState([]);
 
-  const SKYSCANNER_API_KEY = 'YOUR_API_KEY_HERE';
+  const SKYSCANNER_BROWSE_QUOTES_API = 'https://skyscanner-skyscanner-flight-search-v1.p.rapidapi.com/apiservices/browsequotes/v1.0/US/USD/en-US/anywhere/anytime';
 
   const getPopularDestinations = async () => {
-    const response = await axios.get(`https://partners.api.skyscanner.net/apiservices/reference/v1.0/countries/locales`);
-    setPopularDestinations(response.data.Countries);
+    const response = await axios.get(SKYSCANNER_BROWSE_QUOTES_API, {
+      headers: {
+        'X-RapidAPI-Key': 'YOUR_API_KEY_HERE',
+        'X-RapidAPI-Host': 'skyscanner-skyscanner-flight-search-v1.p.rapidapi.com'
+      }
+    });
+    setPopularDestinations(response.data.Quotes);
   };
 
   useEffect(() => {
@@ -16,18 +22,31 @@ const PopularLocations = () => {
   }, []);
 
   return (
-    <div>
-      <h2>Popular Locations</h2>
-      <ul>
-        {popularDestinations.map((destination) => (
-          <li key={destination.Id}>
-            <img src={`https://content.r9cdn.net/rimg/dimg/${destination.ImageUrl}`} alt={destination.Name} />
-            {destination.Name}
-          </li>
-        ))}
-      </ul>
+    <div className={styles["popular-destinations"]}>
+      {popularDestinations.map((destination) => (
+        <div className={styles["popular-destination"]} key={destination.QuoteId}>
+          {destination.OutboundLeg.CarrierIds.map((carrierId) => (
+            <img key={carrierId} src={`https://logos.skyscnr.com/images/airlines/favicon/${carrierId}.png`} alt={`Airline ${carrierId}`} />
+          ))}
+          <div>
+            {destination.OutboundLeg.OriginPlace.CityName}, {destination.OutboundLeg.OriginPlace.CountryName}
+          </div>
+          <div>
+            to
+          </div>
+          <div>
+            {destination.OutboundLeg.DestinationPlace.CityName}, {destination.OutboundLeg.DestinationPlace.CountryName}
+          </div>
+          <div>
+            for ${destination.MinPrice}
+          </div>
+        </div>
+      ))}
     </div>
   );
 };
 
 export default PopularLocations;
+
+
+
