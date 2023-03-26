@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import PopularItem from './PopularItem';
 import styles from "../styles/PopularDestinations.module.css"
 
 const PopularLocations = () => {
@@ -23,30 +24,11 @@ const PopularLocations = () => {
 
   return (
     <div className={styles["popular-destinations"]}>
-      {popularDestinations.map((destination) => (
-        <div className={styles["popular-destination"]} key={destination.QuoteId}>
-          {destination.OutboundLeg.CarrierIds.map((carrierId) => (
-            <img key={carrierId} src={`https://logos.skyscnr.com/images/airlines/favicon/${carrierId}.png`} alt={`Airline ${carrierId}`} />
-          ))}
-          <div>
-            {destination.OutboundLeg.OriginPlace.CityName}, {destination.OutboundLeg.OriginPlace.CountryName}
-          </div>
-          <div>
-            to
-          </div>
-          <div>
-            {destination.OutboundLeg.DestinationPlace.CityName}, {destination.OutboundLeg.DestinationPlace.CountryName}
-          </div>
-          <div>
-            for ${destination.MinPrice}
-          </div>
-        </div>
+      {popularDestinations.slice(0, 1).map((destination) => (
+        <PopularItem destination={destination} />
       ))}
     </div>
   );
 };
 
 export default PopularLocations;
-
-
-
